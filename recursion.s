@@ -8,3 +8,4 @@ main:
     li $v0, 8
     la $a0, myString  #ask for user input
     li $a1, 101      #allocate space for input
+    syscall
