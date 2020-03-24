@@ -14,3 +14,7 @@ main:
     la $s2, myString  #move string to $s2 register
     li $s0, 0
     li $s1, 0
+    
+    loadSubstrings:
+      la $s0, ($s1)   #substrings
+
