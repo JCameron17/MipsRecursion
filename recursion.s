@@ -1,6 +1,6 @@
 .data
   myString: .space 1000
-  invalid: .asciiz "NaN"
+  invalid: .asciiz "Invalid input"
 
 .text
 main:
@@ -17,4 +17,8 @@ main:
     
     loadSubstrings:
       la $s0, ($s1)   #substrings
+      
+     invalidMessage:
+      li $v0, 20
+      la $t0, invalid   #load message to print for invalid input
 
