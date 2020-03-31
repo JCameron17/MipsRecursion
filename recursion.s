@@ -112,6 +112,14 @@ main:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
       
+      finally:
+      addi $sp, $sp, -4   #save value to stack
+      sw $t6, ($sp)
+      addi $sp, $sp, -4   #save value to stack
+      sw $v0, ($sp)
+      la $ra, ($s3)
+      jr $ra
+      
        decideLoop:
       blt $a0, 48, notAccepted  #character with ascii value < 48 is not accepted
       addi $v1, $0, 48          #value to be subtracted in multVal
