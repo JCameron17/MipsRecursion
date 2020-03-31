@@ -32,4 +32,7 @@ main:
       blt $a0, 97, notAccepted  #do not accept special characters
       addi $v1, $0, 87          #value to be subtracted in multVal
       blt $a0, 119, Accepted     #accept characters a-v
+      bgt $a0, 118, notAccepted     #characters above V not accepted
+
+
 
