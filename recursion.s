@@ -23,6 +23,12 @@ main:
       lb $t3, 0($t4) 		       #get character
       beq $t3, 0, handleInput  #leave newSub if null
       beq $t3, 10, handleInput #leave newSub if newline
+      beq $t3, 44, handleInput #leave newSub if comma
+      add $s1, $s1, 1
+      j newSub
+
+      handleInput:
+        la $a0, ($s0)
       
      invalidMessage:
       li $v0, 0
