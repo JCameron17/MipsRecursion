@@ -98,6 +98,11 @@ main:
       addi $t0, $t0, 1              #increment
       j preMult
       
+      over:
+      bgt $s4, 20, invalid1	#do not accept strings over 4 chars
+      li $v0, 1
+      j finally
+      
      invalidMessage:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
