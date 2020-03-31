@@ -29,6 +29,11 @@ main:
 
       handleInput:
         la $a0, ($s0)
+        la $a1, ($s1)
+        jal takeInput
+        jal callNested
+        beq $t3, 0, exit        #exit loops if null
+        beq $t3, 10, exit       #exit loops if newline
       
      invalidMessage:
       li $v0, 0
