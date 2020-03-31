@@ -72,6 +72,15 @@ main:
       beq $t7, 9, removeF         #if tab char, remove
       j stringStart
       
+      removeF:
+        addi $t1, $t1, -1            #move forward in string
+        j removeFollowing
+
+    stringStart:
+      beq $t0, $t1, invalidMessage  #empty string prompts invalid message
+      li $t6, 0 				            #end of spaces
+      li $s4, 0 				            #amount of chars
+      
      invalidMessage:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
