@@ -86,6 +86,13 @@ main:
       add $t5, $t2, $t0
       lb $t7, ($t5)
       la $a0, ($t7)
+      jal decideLoop
+      bne $v0, 0, multVal
+      j invalidMessage
+
+    multVal:
+      mul $t6, $t6, $t9            #multiply by base
+      sub $t5, $t7, $v1             #subtract based on value stored in decideLoop
       
      invalidMessage:
       li $v0, 0
