@@ -53,6 +53,11 @@ main:
 
     removeLeading:
       beq $t0, $t1, stringStart   #when to start processing string (no longer spaces)
+      add $t5, $t2, $t0
+      lb $t7, ($t5)
+      beq $t7, 32, removeL        #if space char, remove
+      beq $t7, 9, removeL         #if tab char, remove
+      j removeFollowing
       
      invalidMessage:
       li $v0, 0
