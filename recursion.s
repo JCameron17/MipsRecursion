@@ -59,6 +59,13 @@ main:
       beq $t7, 9, removeL         #if tab char, remove
       j removeFollowing
       
+      removeL:
+      addi $t0, $t0, 1            #move forward in string
+      j removeLeading
+
+    removeFollowing:
+      beq $t0, $t1, stringStart   #when to start processing string (no longer spaces)
+      
      invalidMessage:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
