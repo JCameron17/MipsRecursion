@@ -103,6 +103,11 @@ main:
       li $v0, 1
       j finally
       
+      invalid1:
+        li $v0, 0
+        la $t6, invalid
+        j finally
+      
      invalidMessage:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
