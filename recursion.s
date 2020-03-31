@@ -93,6 +93,10 @@ main:
     multVal:
       mul $t6, $t6, $t9            #multiply by base
       sub $t5, $t7, $v1             #subtract based on value stored in decideLoop
+      add $t6, $t6, $t5             #add decimal value to base
+      addi $s4, $s4, 1              #increment
+      addi $t0, $t0, 1              #increment
+      j preMult
       
      invalidMessage:
       li $v0, 0
