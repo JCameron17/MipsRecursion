@@ -18,6 +18,12 @@ main:
     loadSubstrings:
       la $s0, ($s1)   #substrings
       
+     newSub:
+      add $t4, $s2, $s1 	     #increment through string
+      lb $t3, 0($t4) 		       #get character
+      beq $t3, 0, handleInput  #leave newSub if null
+      beq $t3, 10, handleInput #leave newSub if newline
+      
      invalidMessage:
       li $v0, 0
       la $t0, invalid   #load message to print for invalid input
