@@ -34,6 +34,12 @@ main:
         jal callNested
         beq $t3, 0, exit        #exit loops if null
         beq $t3, 10, exit       #exit loops if newline
+        addi $s1, $s1, 1
+
+        li $v0, 11              #instruction to print character
+        li $a0, 44              #print comma
+        syscall
+        j loadSubstrings
       
      invalidMessage:
       li $v0, 0
