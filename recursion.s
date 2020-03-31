@@ -65,6 +65,12 @@ main:
 
     removeFollowing:
       beq $t0, $t1, stringStart   #when to start processing string (no longer spaces)
+      add $t5, $t2, $t1
+      addi $t5, $t5, -1
+      lb $t7, ($t5)
+      beq $t7, 32, removeF        #if space char, remove
+      beq $t7, 9, removeF         #if tab char, remove
+      j stringStart
       
      invalidMessage:
       li $v0, 0
