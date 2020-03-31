@@ -48,6 +48,11 @@ main:
     takeInput:
       la $s3, ($ra)	      #jump to address in $ra when subprogram finishes
       la $t0, ($a0)	      #load value from $a0 to $t0
+      addi $t1, $a1, 0    #store end of user input string
+      la $t2, myString   #load beginning of user input string
+
+    removeLeading:
+      beq $t0, $t1, stringStart   #when to start processing string (no longer spaces)
       
      invalidMessage:
       li $v0, 0
