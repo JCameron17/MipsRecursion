@@ -33,6 +33,14 @@ main:
       addi $v1, $0, 87          #value to be subtracted in multVal
       blt $a0, 119, Accepted     #accept characters a-v
       bgt $a0, 118, notAccepted     #characters above V not accepted
+      
+      Accepted:
+      li $v0, 1         #print integer
+      jr $ra
+
+    notAccepted:
+      li $v0, 0
+      jr $ra
 
 
 
