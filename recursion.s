@@ -40,6 +40,14 @@ main:
         li $a0, 44              #print comma
         syscall
         j loadSubstrings
+        
+        exit:
+        li $v0, 10
+        syscall
+
+    takeInput:
+      la $s3, ($ra)	      #jump to address in $ra when subprogram finishes
+      la $t0, ($a0)	      #load value from $a0 to $t0
       
      invalidMessage:
       li $v0, 0
