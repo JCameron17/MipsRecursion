@@ -19,6 +19,6 @@ main:
       la $s0, ($s1)   #substrings
       
      invalidMessage:
-      li $v0, 20
+      li $v0, 0
       la $t0, invalid   #load message to print for invalid input
 
