@@ -99,7 +99,7 @@ main:
       j preMult
       
       over:
-      bgt $s4, 20, invalid1	#do not accept strings over 4 chars
+      bgt $s4, 20, invalid1	#do not accept strings over 20 chars
       li $v0, 1
       j finally
       
