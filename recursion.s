@@ -152,6 +152,19 @@ main:
      		 mflo $a0
      		 beq $a0, 0, dontPrint #keep program from printing early
          syscall
+         
+         dontPrint:
+      	mfhi $a0
+      	syscall
+      	j return
+
+        invalid2:
+   li $v0, 4
+   la $a0, ($t2)
+   syscall
+
+        return:
+        jr $ra
 
 
 
