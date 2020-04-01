@@ -139,6 +139,19 @@ main:
     notAccepted:
       li $v0, 0
       jr $ra
+      
+   
+      callNested:  #call nested subroutines
+    	   lw $t1, ($sp)
+    	   addi $sp, $sp, 4
+    	   lw $t2, ($sp)
+    	   beq $t1, 0, invalid2 #empty string is invalid
+         li $t5, 10
+         divu $t2, $t5        #divide to prevent stack overflow
+         li $v0, 1
+     		 mflo $a0
+     		 beq $a0, 0, dontPrint #keep program from printing early
+         syscall
 
 
 
